@@ -43,6 +43,12 @@ async function fetchData(page = 1) {
       console.log("Fetching next page...");
       await fetchData(data.nextPage);
     }
+
+    // Convert object ➡️ Map
+    const dataMap = new Map(Object.entries(response.data));
+    // iterate over MAp
+    for (const [id, item] of dataMap) {
+    }
   } catch (error) {
     // ✅ 7. Handle Rate Limiting (429)
     if (error.response?.status === 429) {
